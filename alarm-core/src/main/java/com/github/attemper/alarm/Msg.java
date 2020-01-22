@@ -1,6 +1,6 @@
 package com.github.attemper.alarm;
 
-public abstract class Msg {
+public abstract class Msg implements Information {
 
     protected String msgtype;
 

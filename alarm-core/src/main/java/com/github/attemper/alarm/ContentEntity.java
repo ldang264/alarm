@@ -5,7 +5,7 @@ import com.sun.istack.internal.NotNull;
 public class ContentEntity {
 
     /**
-     * 消息内容
+     * 文本内容，最长不超过2048个字节，必须是utf8编码
      */
     @NotNull
     protected String content;
