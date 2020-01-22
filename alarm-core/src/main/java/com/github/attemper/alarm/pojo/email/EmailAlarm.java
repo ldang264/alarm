@@ -7,6 +7,7 @@ import com.github.attemper.alarm.Information;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 public class EmailAlarm extends AlarmAdapter {
 
@@ -21,17 +22,20 @@ public class EmailAlarm extends AlarmAdapter {
     public void send(Config config, Information information) throws Exception {
         final EmailConfig conf = (EmailConfig) config;
         EmailInformation emailInformation = (EmailInformation) information;
+        if (conf.getHost() != null) {
+            Properties properties = conf.getProperties() == null ? new Properties() : conf.getProperties();
+            properties.put("mail.smtp.host", conf.getHost());
+        }
         Session session = Session.getInstance(conf.getProperties(), new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(conf.getUsername(), conf.getPassword());
             }
         });
-
-        String protocol = session.getProperty("mail.transport.protocol");
+        /*String protocol = session.getProperty("mail.transport.protocol");
         if (protocol == null) {
             protocol = DEFAULT_PROTOCOL;
-        }
+        }*/
         //Transport transport = session.getTransport(protocol);
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress(emailInformation.getFrom()));

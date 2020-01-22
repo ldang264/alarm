@@ -6,18 +6,20 @@ import java.util.Properties;
 
 public class EmailConfig implements Config {
 
-    protected Properties properties;
+    protected String host;
 
     protected String username;
 
     protected String password;
 
-    public Properties getProperties() {
-        return properties;
+    protected Properties properties;
+
+    public String getHost() {
+        return host;
     }
 
-    public EmailConfig setProperties(Properties properties) {
-        this.properties = properties;
+    public EmailConfig setHost(String host) {
+        this.host = host;
         return this;
     }
 
@@ -38,4 +40,14 @@ public class EmailConfig implements Config {
         this.password = password;
         return this;
     }
+
+    public Properties getProperties() {
+        return properties;
+    }
+
+    public EmailConfig setProperties(Properties properties) {
+        this.properties = properties;
+        return this;
+    }
+
 }
