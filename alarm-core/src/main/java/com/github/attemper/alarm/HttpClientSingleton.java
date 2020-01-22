@@ -45,7 +45,6 @@ public class HttpClientSingleton {
 
     /**
      * @param httpUriRequest
-     * @param clazz
      * @return
      */
     private String execute(HttpUriRequest httpUriRequest) {
