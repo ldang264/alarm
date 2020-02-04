@@ -13,8 +13,8 @@ public class AlarmTest {
     @Test
     public void testEmail() {
         EmailAlarm alarm = new EmailAlarm();
-        EmailConfig config = new EmailConfig().setHost("smtp.qq.com").setUsername("820704815@qq.com").setPassword("dnlhkluwhkdfbcde");
-        EmailInformation emailInformation = new EmailInformation().setTo("2456038733@qq.com").setSubject("Hello").setContent("<b>你好</b>");
+        EmailConfig config = new EmailConfig().setHost("smtp.qq.com").setUsername("820704815@qq.com").setPassword("hhhhaiobrrwibeac");
+        EmailInformation emailInformation = new EmailInformation().setTo("2456038733@qq.com").setSubject("Hello").setContent("你好</br><font color=\"red\">中国</font>");
         try {
             alarm.send(config, emailInformation);
         } catch (Exception e) {
