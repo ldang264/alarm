@@ -8,12 +8,12 @@ import com.github.attemper.alarm.*;
 public class EnterpriseWeChatAlarm extends AlarmAdapter {
 
     public EnterpriseWeChatAlarm() {
-        this.index = 2;
+        this.index = AlarmType.ENTERPRISE_WE_CHAT.getValue();
     }
 
     @Override
     public void send(Config config, Information information) {
-        WebHookConfig webHookConfig = (WebHookConfig) config;
-        HttpClientSingleton.getInstance().post(webHookConfig.getUrl(), information);
+        EnterpriseWeChatConfig enterpriseWeChatConfig = (EnterpriseWeChatConfig) config;
+        HttpClientSingleton.getInstance().post(enterpriseWeChatConfig.getUrl(), information);
     }
 }

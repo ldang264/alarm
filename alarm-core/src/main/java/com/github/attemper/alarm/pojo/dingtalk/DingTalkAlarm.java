@@ -1,10 +1,6 @@
 package com.github.attemper.alarm.pojo.dingtalk;
 
-import com.github.attemper.alarm.AlarmAdapter;
-import com.github.attemper.alarm.Config;
-import com.github.attemper.alarm.HttpClientSingleton;
-import com.github.attemper.alarm.Information;
-import com.github.attemper.alarm.WebHookConfig;
+import com.github.attemper.alarm.*;
 
 /**
  * https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq
@@ -12,12 +8,12 @@ import com.github.attemper.alarm.WebHookConfig;
 public class DingTalkAlarm extends AlarmAdapter {
 
     public DingTalkAlarm() {
-        this.index = 1;
+        this.index = AlarmType.DING_TALK.getValue();
     }
 
     @Override
     public void send(Config config, Information information) {
-        WebHookConfig webHookConfig = (WebHookConfig) config;
-        HttpClientSingleton.getInstance().post(webHookConfig.getUrl(), information);
+        DingTalkConfig dingTalkConfig = (DingTalkConfig) config;
+        HttpClientSingleton.getInstance().post(dingTalkConfig.getUrl(), information);
     }
 }

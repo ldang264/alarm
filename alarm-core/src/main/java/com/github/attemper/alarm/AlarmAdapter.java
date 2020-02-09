@@ -2,9 +2,7 @@ package com.github.attemper.alarm;
 
 import java.util.List;
 
-public abstract class AlarmAdapter implements Alarming {
-
-    protected int index;
+public abstract class AlarmAdapter extends Indexed implements Alarming {
 
     @Override
     public void send(Config config, List<Information> informations) throws Exception {
@@ -15,12 +13,4 @@ public abstract class AlarmAdapter implements Alarming {
         }
     }
 
-    public int getIndex() {
-        return index;
-    }
-
-    public AlarmAdapter setIndex(int index) {
-        this.index = index;
-        return this;
-    }
 }

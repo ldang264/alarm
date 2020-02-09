@@ -1,10 +1,10 @@
 package com.github.attemper.alarm.pojo.email;
 
-import com.github.attemper.alarm.Config;
+import com.github.attemper.alarm.ConfigAdapter;
 
-import java.util.Properties;
+import java.util.Map;
 
-public class EmailConfig implements Config {
+public class EmailConfig extends ConfigAdapter {
 
     protected String host;
 
@@ -12,7 +12,7 @@ public class EmailConfig implements Config {
 
     protected String password;
 
-    protected Properties properties;
+    protected Map<String, String> properties;
 
     public String getHost() {
         return host;
@@ -41,11 +41,11 @@ public class EmailConfig implements Config {
         return this;
     }
 
-    public Properties getProperties() {
+    public Map<String, String> getProperties() {
         return properties;
     }
 
-    public EmailConfig setProperties(Properties properties) {
+    public EmailConfig setProperties(Map<String, String> properties) {
         this.properties = properties;
         return this;
     }
