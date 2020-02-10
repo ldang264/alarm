@@ -1,19 +1,17 @@
 package com.github.attemper.alarm.dingtalk.model.link;
 
-import com.sun.istack.internal.NotNull;
-
 public class LinkBody {
 
     /**
-     * 消息内容。如果太长只会部分展示
+     * 消息内容。如果太长只会部分展示<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String text;
 
     /**
-     * 消息标题
+     * 消息标题<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String title;
 
     /**
@@ -22,9 +20,9 @@ public class LinkBody {
     protected String picUrl;
 
     /**
-     * 点击消息跳转的URL
+     * 点击消息跳转的URL<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String messageUrl;
 
     public String getText() {

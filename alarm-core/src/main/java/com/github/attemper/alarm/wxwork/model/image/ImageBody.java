@@ -1,19 +1,17 @@
-package com.github.attemper.alarm.enterprisewechat.model.image;
-
-import com.sun.istack.internal.NotNull;
+package com.github.attemper.alarm.wxwork.model.image;
 
 public class ImageBody {
 
     /**
-     * 图片内容的base64编码
+     * 图片内容的base64编码<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String base64;
 
     /**
-     * 图片内容（base64编码前）的md5值
+     * 图片内容（base64编码前）的md5值<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String md5;
 
     public String getBase64() {

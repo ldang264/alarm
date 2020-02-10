@@ -40,12 +40,12 @@
 
 
     {
-      "name": "alarm.channel.enterprise-we-chat.enabled",
+      "name": "alarm.channel.wx-work.enabled",
       "type" : "java.lang.Boolean",
       "defaultValue": true
     },
     {
-      "name": "alarm.channel.enterprise-we-chat.url"
+      "name": "alarm.channel.wx-work.url"
     }
   ]
 }

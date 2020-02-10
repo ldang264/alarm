@@ -1,11 +1,9 @@
-package com.github.attemper.alarm.enterprisewechat.model.news;
+package com.github.attemper.alarm.wxwork.model.news;
 
 import com.github.attemper.alarm.Msg;
-import com.sun.istack.internal.NotNull;
 
 public class NewsMsg extends Msg {
 
-    @NotNull
     protected Articles news;
 
     public NewsMsg() {

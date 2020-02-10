@@ -1,19 +1,17 @@
 package com.github.attemper.alarm.dingtalk.model.actionCard;
 
-import com.sun.istack.internal.NotNull;
-
 public class ActionCardBody {
 
     /**
      * 首屏会话透出的展示内容<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String title;
 
     /**
-     * markdown格式的消息
+     * markdown格式的消息<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String text;
 
     /**

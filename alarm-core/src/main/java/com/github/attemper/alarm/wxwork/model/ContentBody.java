@@ -1,4 +1,4 @@
-package com.github.attemper.alarm.enterprisewechat.model;
+package com.github.attemper.alarm.wxwork.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.attemper.alarm.ContentEntity;

@@ -1,13 +1,19 @@
 package com.github.attemper.alarm.dingtalk.model.feedCard;
 
-import com.sun.istack.internal.NotNull;
-
 public class FeedCardBody {
 
     /**
      * 首屏会话透出的展示内容<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String links;
 
+    public String getLinks() {
+        return links;
+    }
+
+    public FeedCardBody setLinks(String links) {
+        this.links = links;
+        return this;
+    }
 }

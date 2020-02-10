@@ -1,12 +1,10 @@
-package com.github.attemper.alarm.enterprisewechat.model.text;
+package com.github.attemper.alarm.wxwork.model.text;
 
 import com.github.attemper.alarm.Msg;
-import com.github.attemper.alarm.enterprisewechat.model.ContentBody;
-import com.sun.istack.internal.NotNull;
+import com.github.attemper.alarm.wxwork.model.ContentBody;
 
 public class TextMsg extends Msg {
 
-    @NotNull
     protected ContentBody text;
 
     public TextMsg() {

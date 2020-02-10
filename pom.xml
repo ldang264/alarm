@@ -21,6 +21,8 @@
         <spring.boot.version>1.4.0.RELEASE</spring.boot.version>
         <spring.cloud.version>Camden.SR1</spring.cloud.version>
 
+        <jakarta.mail.version>1.6.4</jakarta.mail.version>
+        <httpclient.version>4.5.5</httpclient.version>
         <reflections.version>0.9.11</reflections.version>
         <guava.version>20.0</guava.version>
 

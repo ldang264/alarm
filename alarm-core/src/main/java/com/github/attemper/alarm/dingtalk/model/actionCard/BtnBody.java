@@ -1,19 +1,17 @@
 package com.github.attemper.alarm.dingtalk.model.actionCard;
 
-import com.sun.istack.internal.NotNull;
-
 public class BtnBody {
 
     /**
-     * 按钮方案
+     * 按钮方案<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String title;
 
     /**
-     * 点击按钮触发的URL
+     * 点击按钮触发的URL<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String actionURL;
 
     public String getTitle() {

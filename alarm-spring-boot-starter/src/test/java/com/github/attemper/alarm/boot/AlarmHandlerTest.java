@@ -5,7 +5,7 @@ import com.github.attemper.alarm.ContentEntity;
 import com.github.attemper.alarm.Information;
 import com.github.attemper.alarm.dingtalk.model.text.TextMsg;
 import com.github.attemper.alarm.email.EmailInformation;
-import com.github.attemper.alarm.enterprisewechat.model.ContentBody;
+import com.github.attemper.alarm.wxwork.model.ContentBody;
 import com.github.attemper.alarm.spring.AlarmHandler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +22,7 @@ import org.springframework.test.context.junit4.SpringRunner;
         "alarm.channel.email.username=820704815@qq.com",
         "alarm.channel.email.password=hhhhaiobrrwibeac",
         "alarm.channel.ding-talk.url=https://oapi.dingtalk.com/robot/send?access_token=8d3265518af6dcf99de4b8d6f8a927f75a8f972e98b6dafec0d56e1642531020",
-        "alarm.channel.enterprise-we-chat.url=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=30a8f590-8250-47e8-bd15-9d37c8a37de8"
+        "alarm.channel.wx-work.url=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=30a8f590-8250-47e8-bd15-9d37c8a37de8"
 })
 @ContextConfiguration(classes = {
         AlarmAutoConfiguration.class
@@ -48,10 +48,10 @@ public class AlarmHandlerTest {
     }
 
     @Test
-    public void sendEnterpriseWeChat() throws Exception {
+    public void sendWxWork() throws Exception {
         ContentBody contentBody = new ContentBody();
         contentBody.setContent("任务报错了");
-        Information info = new com.github.attemper.alarm.enterprisewechat.model.text.TextMsg().setText(contentBody);
-        alarmHandler.send(AlarmType.ENTERPRISE_WE_CHAT.getValue(), info);
+        Information info = new com.github.attemper.alarm.wxwork.model.text.TextMsg().setText(contentBody);
+        alarmHandler.send(AlarmType.WX_WORK.getValue(), info);
     }
 }

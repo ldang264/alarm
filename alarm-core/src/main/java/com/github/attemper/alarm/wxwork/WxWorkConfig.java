@@ -1,8 +1,8 @@
-package com.github.attemper.alarm.enterprisewechat;
+package com.github.attemper.alarm.wxwork;
 
 import com.github.attemper.alarm.ConfigAdapter;
 
-public class EnterpriseWeChatConfig extends ConfigAdapter {
+public class WxWorkConfig extends ConfigAdapter {
 
     protected String url;
 
@@ -10,7 +10,7 @@ public class EnterpriseWeChatConfig extends ConfigAdapter {
         return url;
     }
 
-    public EnterpriseWeChatConfig setUrl(String url) {
+    public WxWorkConfig setUrl(String url) {
         this.url = url;
         return this;
     }

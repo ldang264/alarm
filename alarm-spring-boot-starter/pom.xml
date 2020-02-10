@@ -9,13 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>${parent.artifactId}-spring-boot-starter</artifactId>
+    <artifactId>${project.parent.artifactId}-spring-boot-starter</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>${parent.groupId}</groupId>
-            <artifactId>${parent.artifactId}-spring</artifactId>
-            <version>${parent.version}</version>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>${project.parent.artifactId}-spring</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -26,6 +26,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>

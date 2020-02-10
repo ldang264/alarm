@@ -2,7 +2,6 @@ package com.github.attemper.alarm.boot;
 
 import com.github.attemper.alarm.AlarmType;
 import com.github.attemper.alarm.Store;
-import com.github.attemper.alarm.spring.AlarmConfiguration;
 import com.github.attemper.alarm.spring.AlarmHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -28,6 +27,6 @@ public class AlarmAutoConfiguration {
         AlarmProperties.ChannelConfig channel = alarmProperties.getChannel();
         Store.getConfigMap().put(AlarmType.EMAIL.getValue(), channel.getEmail());
         Store.getConfigMap().put(AlarmType.DING_TALK.getValue(), channel.getDingTalk());
-        Store.getConfigMap().put(AlarmType.ENTERPRISE_WE_CHAT.getValue(), channel.getEnterpriseWeChat());
+        Store.getConfigMap().put(AlarmType.WX_WORK.getValue(), channel.getWxWork());
     }
 }

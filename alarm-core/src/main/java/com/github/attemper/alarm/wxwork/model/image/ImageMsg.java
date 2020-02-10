@@ -1,4 +1,4 @@
-package com.github.attemper.alarm.enterprisewechat.model.image;
+package com.github.attemper.alarm.wxwork.model.image;
 
 import com.github.attemper.alarm.Msg;
 

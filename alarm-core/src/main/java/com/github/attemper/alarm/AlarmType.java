@@ -5,7 +5,7 @@ public enum AlarmType {
 
     DING_TALK(1),
 
-    ENTERPRISE_WE_CHAT(2);
+    WX_WORK(2);
 
     private int value;
 

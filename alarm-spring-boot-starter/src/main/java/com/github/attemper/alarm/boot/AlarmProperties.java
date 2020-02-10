@@ -2,7 +2,7 @@ package com.github.attemper.alarm.boot;
 
 import com.github.attemper.alarm.dingtalk.DingTalkConfig;
 import com.github.attemper.alarm.email.EmailConfig;
-import com.github.attemper.alarm.enterprisewechat.EnterpriseWeChatConfig;
+import com.github.attemper.alarm.wxwork.WxWorkConfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
@@ -31,7 +31,7 @@ public class AlarmProperties {
 
         private DingTalkConfig dingTalk;
 
-        private EnterpriseWeChatConfig enterpriseWeChat;
+        private WxWorkConfig wxWork;
 
         public EmailConfig getEmail() {
             return email;
@@ -49,12 +49,12 @@ public class AlarmProperties {
             this.dingTalk = dingTalk;
         }
 
-        public EnterpriseWeChatConfig getEnterpriseWeChat() {
-            return enterpriseWeChat;
+        public WxWorkConfig getWxWork() {
+            return wxWork;
         }
 
-        public void setEnterpriseWeChat(EnterpriseWeChatConfig enterpriseWeChat) {
-            this.enterpriseWeChat = enterpriseWeChat;
+        public void setWxWork(WxWorkConfig wxWork) {
+            this.wxWork = wxWork;
         }
     }
 

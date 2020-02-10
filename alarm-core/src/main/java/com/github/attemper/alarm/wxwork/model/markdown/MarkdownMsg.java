@@ -1,12 +1,10 @@
-package com.github.attemper.alarm.enterprisewechat.model.markdown;
+package com.github.attemper.alarm.wxwork.model.markdown;
 
 import com.github.attemper.alarm.Msg;
-import com.github.attemper.alarm.enterprisewechat.model.ContentBody;
-import com.sun.istack.internal.NotNull;
+import com.github.attemper.alarm.wxwork.model.ContentBody;
 
 public class MarkdownMsg extends Msg {
 
-    @NotNull
     protected ContentBody markdown;
 
     public MarkdownMsg() {

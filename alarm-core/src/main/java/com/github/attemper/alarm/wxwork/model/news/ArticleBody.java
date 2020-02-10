@@ -1,13 +1,11 @@
-package com.github.attemper.alarm.enterprisewechat.model.news;
-
-import com.sun.istack.internal.NotNull;
+package com.github.attemper.alarm.wxwork.model.news;
 
 public class ArticleBody {
 
     /**
-     * 标题，不超过128个字节，超过会自动截断
+     * 标题，不超过128个字节，超过会自动截断<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String title;
 
     /**
@@ -16,15 +14,15 @@ public class ArticleBody {
     protected String description;
 
     /**
-     * 点击后跳转的链接
+     * 点击后跳转的链接<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String url;
 
     /**
-     * 图文消息的图片链接，支持JPG、PNG格式，较好的效果为大图 1068*455，小图150*150
+     * 图文消息的图片链接，支持JPG、PNG格式，较好的效果为大图 1068*455，小图150*150<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String picurl;
 
     public String getTitle() {

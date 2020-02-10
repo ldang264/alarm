@@ -1,25 +1,23 @@
 package com.github.attemper.alarm.dingtalk.model.feedCard;
 
-import com.sun.istack.internal.NotNull;
-
 public class FeedCardLinkBody {
 
     /**
-     * 单条信息文本
+     * 单条信息文本<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String title;
 
     /**
-     * 单条信息后面图片的URL
+     * 单条信息后面图片的URL<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String picURL;
 
     /**
-     * 点击单条信息到跳转链接
+     * 点击单条信息到跳转链接<br>
+     * <b>非空</b>
      */
-    @NotNull
     protected String messageURL;
 
     public String getTitle() {
