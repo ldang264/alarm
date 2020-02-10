@@ -34,7 +34,7 @@ public class EmailAlarmTest {
                 .setSubject("你好")
                 .setContent("<font color=\"red\">中国</font>");
         Reply reply = alarm.send(config, htmlInfo);
-        Assert.assertTrue(reply == null);
+        Assert.assertEquals(reply, null);
     }
 
 }

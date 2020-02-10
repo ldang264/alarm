@@ -26,6 +26,6 @@ public class WxWorkAlarmTest {
         contentBody.setContent("任务报错了");
         Information info = new TextMsg().setText(contentBody);
         AppResult appResult = alarm.send(config, info);
-        Assert.assertTrue(appResult.getErrCode() == 0);
+        Assert.assertEquals(appResult.getErrCode(), 0);
     }
 }

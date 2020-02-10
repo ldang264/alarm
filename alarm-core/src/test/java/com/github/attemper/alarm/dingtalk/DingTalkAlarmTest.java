@@ -17,13 +17,15 @@ public class DingTalkAlarmTest {
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
         alarm = new DingTalkAlarm();
-        config = new DingTalkConfig().setUrl("https://oapi.dingtalk.com/robot/send?access_token=8d3265518af6dcf99de4b8d6f8a927f75a8f972e98b6dafec0d56e1642531020");
+        config = new DingTalkConfig()
+                .setUrl("https://oapi.dingtalk.com/robot/send?access_token=8d3265518af6dcf99de4b8d6f8a927f75a8f972e98b6dafec0d56e1642531020")
+                .setSecret("SECcfa804c064bd5c82c38ac6a18162bba6c0158d045668373e6e59b4f72f17836c");
     }
 
     @Test
     public void testSend() throws Exception {
         Information info = new TextMsg().setText(new ContentEntity().setContent("任务报错了"));
         AppResult appResult = alarm.send(config, info);
-        Assert.assertTrue(appResult.getErrCode() == 0);
+        Assert.assertEquals(appResult.getErrCode(), 0);
     }
 }
