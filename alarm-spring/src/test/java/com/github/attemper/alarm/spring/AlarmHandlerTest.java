@@ -3,16 +3,15 @@ package com.github.attemper.alarm.spring;
 import com.github.attemper.alarm.AlarmType;
 import com.github.attemper.alarm.ContentEntity;
 import com.github.attemper.alarm.Information;
-import com.github.attemper.alarm.pojo.dingtalk.model.text.TextMsg;
-import com.github.attemper.alarm.pojo.email.EmailInformation;
-import com.github.attemper.alarm.pojo.enterprisewechat.model.ContentBody;
+import com.github.attemper.alarm.dingtalk.model.text.TextMsg;
+import com.github.attemper.alarm.email.EmailInformation;
+import com.github.attemper.alarm.enterprisewechat.model.ContentBody;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestPropertySource(properties = {
@@ -49,7 +48,7 @@ public class AlarmHandlerTest {
     public void sendEnterpriseWeChat() throws Exception {
         ContentBody contentBody = new ContentBody();
         contentBody.setContent("任务报错了");
-        Information info = new com.github.attemper.alarm.pojo.enterprisewechat.model.text.TextMsg().setText(contentBody);
+        Information info = new com.github.attemper.alarm.enterprisewechat.model.text.TextMsg().setText(contentBody);
         alarmHandler.send(AlarmType.ENTERPRISE_WE_CHAT.getValue(), info);
     }
 }

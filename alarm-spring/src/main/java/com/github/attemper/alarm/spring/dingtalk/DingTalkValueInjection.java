@@ -1,7 +1,7 @@
 package com.github.attemper.alarm.spring.dingtalk;
 
 import com.github.attemper.alarm.ConfigAdapter;
-import com.github.attemper.alarm.pojo.dingtalk.DingTalkConfig;
+import com.github.attemper.alarm.dingtalk.DingTalkConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 

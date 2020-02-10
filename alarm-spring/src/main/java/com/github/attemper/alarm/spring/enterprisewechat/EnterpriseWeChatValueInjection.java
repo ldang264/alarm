@@ -1,7 +1,7 @@
 package com.github.attemper.alarm.spring.enterprisewechat;
 
 import com.github.attemper.alarm.ConfigAdapter;
-import com.github.attemper.alarm.pojo.enterprisewechat.EnterpriseWeChatConfig;
+import com.github.attemper.alarm.enterprisewechat.EnterpriseWeChatConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 

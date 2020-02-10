@@ -1,7 +1,7 @@
 package com.github.attemper.alarm.spring.email;
 
 import com.github.attemper.alarm.ConfigAdapter;
-import com.github.attemper.alarm.pojo.email.EmailConfig;
+import com.github.attemper.alarm.email.EmailConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 

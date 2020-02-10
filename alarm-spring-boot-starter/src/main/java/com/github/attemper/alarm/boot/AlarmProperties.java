@@ -1,8 +1,8 @@
 package com.github.attemper.alarm.boot;
 
-import com.github.attemper.alarm.pojo.dingtalk.DingTalkConfig;
-import com.github.attemper.alarm.pojo.email.EmailConfig;
-import com.github.attemper.alarm.pojo.enterprisewechat.EnterpriseWeChatConfig;
+import com.github.attemper.alarm.dingtalk.DingTalkConfig;
+import com.github.attemper.alarm.email.EmailConfig;
+import com.github.attemper.alarm.enterprisewechat.EnterpriseWeChatConfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
