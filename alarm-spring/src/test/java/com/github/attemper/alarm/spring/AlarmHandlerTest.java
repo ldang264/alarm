@@ -3,9 +3,9 @@ package com.github.attemper.alarm.spring;
 import com.github.attemper.alarm.AlarmType;
 import com.github.attemper.alarm.ContentEntity;
 import com.github.attemper.alarm.Information;
-import com.github.attemper.alarm.dingtalk.model.text.TextMsg;
+import com.github.attemper.alarm.dingtalk.param.text.TextMsg;
 import com.github.attemper.alarm.email.EmailInformation;
-import com.github.attemper.alarm.wxwork.model.ContentBody;
+import com.github.attemper.alarm.wxwork.param.ContentBody;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +48,7 @@ public class AlarmHandlerTest {
     public void sendWxWork() throws Exception {
         ContentBody contentBody = new ContentBody();
         contentBody.setContent("任务报错了");
-        Information info = new com.github.attemper.alarm.wxwork.model.text.TextMsg().setText(contentBody);
+        Information info = new com.github.attemper.alarm.wxwork.param.text.TextMsg().setText(contentBody);
         alarmHandler.send(AlarmType.WX_WORK.getValue(), info);
     }
 }

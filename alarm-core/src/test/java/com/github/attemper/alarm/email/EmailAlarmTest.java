@@ -1,5 +1,7 @@
 package com.github.attemper.alarm.email;
 
+import com.github.attemper.alarm.Reply;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -31,7 +33,8 @@ public class EmailAlarmTest {
                 .setTo("2456038733@qq.com,820704815@qq.com")
                 .setSubject("你好")
                 .setContent("<font color=\"red\">中国</font>");
-        alarm.send(config, htmlInfo);
+        Reply reply = alarm.send(config, htmlInfo);
+        Assert.assertTrue(reply == null);
     }
 
 }

@@ -12,8 +12,9 @@ public class WxWorkAlarm extends AlarmAdapter {
     }
 
     @Override
-    public void send(Config config, Information information) {
+    public AppResult send(Config config, Information information) {
         WxWorkConfig WxWorkConfig = (WxWorkConfig) config;
-        HttpClientSingleton.getInstance().post(WxWorkConfig.getUrl(), information);
+        String result = HttpClientSingleton.getInstance().post(WxWorkConfig.getUrl(), information);
+        return BeanUtil.jsonStr2Bean(result, AppResult.class);
     }
 }

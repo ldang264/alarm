@@ -2,7 +2,9 @@ package com.github.attemper.alarm.dingtalk;
 
 import com.github.attemper.alarm.ContentEntity;
 import com.github.attemper.alarm.Information;
-import com.github.attemper.alarm.dingtalk.model.text.TextMsg;
+import com.github.attemper.alarm.AppResult;
+import com.github.attemper.alarm.dingtalk.param.text.TextMsg;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -21,6 +23,7 @@ public class DingTalkAlarmTest {
     @Test
     public void testSend() throws Exception {
         Information info = new TextMsg().setText(new ContentEntity().setContent("任务报错了"));
-        alarm.send(config, info);
+        AppResult appResult = alarm.send(config, info);
+        Assert.assertTrue(appResult.getErrCode() == 0);
     }
 }

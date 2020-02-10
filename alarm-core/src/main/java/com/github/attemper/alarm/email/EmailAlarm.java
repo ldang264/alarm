@@ -1,9 +1,6 @@
 package com.github.attemper.alarm.email;
 
-import com.github.attemper.alarm.AlarmAdapter;
-import com.github.attemper.alarm.AlarmType;
-import com.github.attemper.alarm.Config;
-import com.github.attemper.alarm.Information;
+import com.github.attemper.alarm.*;
 import org.apache.commons.lang.StringUtils;
 
 import javax.activation.DataHandler;
@@ -22,7 +19,7 @@ public class EmailAlarm extends AlarmAdapter {
     }
 
     @Override
-    public void send(Config config, Information information) throws Exception {
+    public Reply send(Config config, Information information) throws Exception {
         final EmailConfig conf = (EmailConfig) config;
         EmailInformation emailInformation = (EmailInformation) information;
         Properties properties = new Properties();
@@ -46,6 +43,7 @@ public class EmailAlarm extends AlarmAdapter {
         } else {
             Transport.send(message);
         }
+        return null;
     }
 
 }

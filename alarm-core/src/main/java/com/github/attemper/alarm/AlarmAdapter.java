@@ -1,16 +1,19 @@
 package com.github.attemper.alarm;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AlarmAdapter extends Indexed implements Alarming {
 
     @Override
-    public void send(Config config, List<Information> informations) throws Exception {
+    public List<Reply> send(Config config, List<Information> informations) throws Exception {
+        List<Reply> replys = new ArrayList<Reply>();
         if (informations != null && informations.size() > 0) {
             for (Information information : informations) {
-                this.send(config, information);
+                replys.add(this.send(config, information));
             }
         }
+        return replys;
     }
 
 }

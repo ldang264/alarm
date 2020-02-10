@@ -1,9 +1,6 @@
 package com.github.attemper.alarm.spring;
 
-import com.github.attemper.alarm.AlarmAdapter;
-import com.github.attemper.alarm.Alarming;
-import com.github.attemper.alarm.Information;
-import com.github.attemper.alarm.Store;
+import com.github.attemper.alarm.*;
 import org.reflections.Reflections;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +33,7 @@ public class AlarmHandler {
         }
     }
 
-    public void send(int index, Information information) throws Exception {
+    public Reply send(int index, Information information) throws Exception {
         if (!alarms.containsKey(index)) {
             throw new RuntimeException("The alarm " + index + " is non-existent");
         } else if (!Store.getConfigMap().containsKey(index)) {
@@ -44,7 +41,7 @@ public class AlarmHandler {
         }
         Class<? extends AlarmAdapter> alarmClazz = alarms.get(index);
         AlarmAdapter alarmAdapter = newInstance(alarmClazz);
-        alarmAdapter.send(Store.getConfigMap().get(index), information);
+        return alarmAdapter.send(Store.getConfigMap().get(index), information);
     }
 
     private static AlarmAdapter newInstance(Class<? extends AlarmAdapter> alarmClazz) {
