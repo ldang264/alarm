@@ -1,10 +1,10 @@
-package com.github.attemper.alarm.email;
+package com.github.attemper.alarm.mail;
 
 import com.github.attemper.alarm.ConfigAdapter;
 
 import java.util.Map;
 
-public class EmailConfig extends ConfigAdapter {
+public class MailConfig extends ConfigAdapter {
 
     protected String host;
 
@@ -18,7 +18,7 @@ public class EmailConfig extends ConfigAdapter {
         return host;
     }
 
-    public EmailConfig setHost(String host) {
+    public MailConfig setHost(String host) {
         this.host = host;
         return this;
     }
@@ -27,7 +27,7 @@ public class EmailConfig extends ConfigAdapter {
         return username;
     }
 
-    public EmailConfig setUsername(String username) {
+    public MailConfig setUsername(String username) {
         this.username = username;
         return this;
     }
@@ -36,7 +36,7 @@ public class EmailConfig extends ConfigAdapter {
         return password;
     }
 
-    public EmailConfig setPassword(String password) {
+    public MailConfig setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -45,7 +45,7 @@ public class EmailConfig extends ConfigAdapter {
         return properties;
     }
 
-    public EmailConfig setProperties(Map<String, String> properties) {
+    public MailConfig setProperties(Map<String, String> properties) {
         this.properties = properties;
         return this;
     }

@@ -1,4 +1,4 @@
-package com.github.attemper.alarm.email;
+package com.github.attemper.alarm.mail;
 
 import com.github.attemper.alarm.*;
 import org.apache.commons.lang.StringUtils;
@@ -12,16 +12,16 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.util.ByteArrayDataSource;
 import java.util.Properties;
 
-public class EmailAlarm extends AlarmAdapter {
+public class MailAlarm extends AlarmAdapter {
 
-    public EmailAlarm() {
-        this.index = AlarmType.EMAIL.getValue();
+    public MailAlarm() {
+        this.index = AlarmType.MAIL.getValue();
     }
 
     @Override
     public Reply send(Config config, Information information) throws Exception {
-        final EmailConfig conf = (EmailConfig) config;
-        EmailInformation emailInformation = (EmailInformation) information;
+        final MailConfig conf = (MailConfig) config;
+        MailInformation mailInformation = (MailInformation) information;
         Properties properties = new Properties();
         if (conf.getProperties() != null && conf.getProperties().size() > 0) {
             properties.putAll(conf.getProperties());
@@ -34,10 +34,10 @@ public class EmailAlarm extends AlarmAdapter {
         }
         Session session = Session.getDefaultInstance(properties, null);
         Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress(emailInformation.getFrom() == null ? conf.getUsername() : emailInformation.getFrom()));
-        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailInformation.getTo()));
-        message.setSubject(emailInformation.getSubject());
-        message.setDataHandler(new DataHandler(new ByteArrayDataSource(emailInformation.getContent(), "text/html")));
+        message.setFrom(new InternetAddress(mailInformation.getFrom() == null ? conf.getUsername() : mailInformation.getFrom()));
+        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mailInformation.getTo()));
+        message.setSubject(mailInformation.getSubject());
+        message.setDataHandler(new DataHandler(new ByteArrayDataSource(mailInformation.getContent(), "text/html")));
         if (StringUtils.isNotBlank(conf.getUsername())) {
             Transport.send(message, conf.getUsername(), conf.getPassword());
         } else {

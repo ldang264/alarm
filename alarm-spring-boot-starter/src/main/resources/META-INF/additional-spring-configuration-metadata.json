@@ -7,21 +7,21 @@
     },
 
     {
-      "name": "alarm.channel.email.enabled",
+      "name": "alarm.channel.mail.enabled",
       "type" : "java.lang.Boolean",
       "defaultValue": true
     },
     {
-      "name": "alarm.channel.email.host"
+      "name": "alarm.channel.mail.host"
     },
     {
-      "name": "alarm.channel.email.username"
+      "name": "alarm.channel.mail.username"
     },
     {
-      "name": "alarm.channel.email.password"
+      "name": "alarm.channel.mail.password"
     },
     {
-      "name" : "alarm.channel.email.properties",
+      "name" : "alarm.channel.mail.properties",
       "type" : "java.util.Map<java.lang.String,java.lang.String>"
     },
 

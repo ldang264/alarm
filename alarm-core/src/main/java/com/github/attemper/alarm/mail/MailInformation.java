@@ -1,8 +1,8 @@
-package com.github.attemper.alarm.email;
+package com.github.attemper.alarm.mail;
 
 import com.github.attemper.alarm.Information;
 
-public class EmailInformation implements Information {
+public class MailInformation implements Information {
     protected String from;
 
     protected String to;
@@ -15,7 +15,7 @@ public class EmailInformation implements Information {
         return from;
     }
 
-    public EmailInformation setFrom(String from) {
+    public MailInformation setFrom(String from) {
         this.from = from;
         return this;
     }
@@ -24,7 +24,7 @@ public class EmailInformation implements Information {
         return to;
     }
 
-    public EmailInformation setTo(String to) {
+    public MailInformation setTo(String to) {
         this.to = to;
         return this;
     }
@@ -33,7 +33,7 @@ public class EmailInformation implements Information {
         return subject;
     }
 
-    public EmailInformation setSubject(String subject) {
+    public MailInformation setSubject(String subject) {
         this.subject = subject;
         return this;
     }
@@ -42,7 +42,7 @@ public class EmailInformation implements Information {
         return content;
     }
 
-    public EmailInformation setContent(String content) {
+    public MailInformation setContent(String content) {
         this.content = content;
         return this;
     }

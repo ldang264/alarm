@@ -25,7 +25,7 @@ public class AlarmAutoConfiguration {
     @PostConstruct
     public void initConfig() {
         AlarmProperties.ChannelConfig channel = alarmProperties.getChannel();
-        Store.getConfigMap().put(AlarmType.EMAIL.getValue(), channel.getEmail());
+        Store.getConfigMap().put(AlarmType.MAIL.getValue(), channel.getMail());
         Store.getConfigMap().put(AlarmType.DING_TALK.getValue(), channel.getDingTalk());
         Store.getConfigMap().put(AlarmType.WX_WORK.getValue(), channel.getWxWork());
     }

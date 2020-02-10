@@ -15,8 +15,7 @@ public class AlarmHandler {
 
     private static Logger log = LoggerFactory.getLogger(AlarmHandler.class);
 
-    private static Map<Integer, Class<? extends AlarmAdapter>> alarms
-            = new HashMap<Integer, Class<? extends AlarmAdapter>>();
+    private static Map<Integer, Class<? extends AlarmAdapter>> alarms = new HashMap<>();
 
     static {
         Reflections reflections = new Reflections(Alarming.class.getPackage().getName());

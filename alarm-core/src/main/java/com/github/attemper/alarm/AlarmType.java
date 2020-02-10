@@ -1,7 +1,7 @@
 package com.github.attemper.alarm;
 
 public enum AlarmType {
-    EMAIL(0),
+    MAIL(0),
 
     DING_TALK(1),
 

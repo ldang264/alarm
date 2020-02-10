@@ -1,7 +1,7 @@
 package com.github.attemper.alarm.boot;
 
 import com.github.attemper.alarm.dingtalk.DingTalkConfig;
-import com.github.attemper.alarm.email.EmailConfig;
+import com.github.attemper.alarm.mail.MailConfig;
 import com.github.attemper.alarm.wxwork.WxWorkConfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
@@ -27,18 +27,18 @@ public class AlarmProperties {
     }
 
     public static class ChannelConfig {
-        private EmailConfig email;
+        private MailConfig mail;
 
         private DingTalkConfig dingTalk;
 
         private WxWorkConfig wxWork;
 
-        public EmailConfig getEmail() {
-            return email;
+        public MailConfig getMail() {
+            return mail;
         }
 
-        public void setEmail(EmailConfig email) {
-            this.email = email;
+        public void setMail(MailConfig mail) {
+            this.mail = mail;
         }
 
         public DingTalkConfig getDingTalk() {
