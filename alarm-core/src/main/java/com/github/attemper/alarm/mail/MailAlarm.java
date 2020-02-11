@@ -14,10 +14,6 @@ import java.util.Properties;
 
 public class MailAlarm extends AlarmAdapter {
 
-    public MailAlarm() {
-        this.index = AlarmType.MAIL.getValue();
-    }
-
     @Override
     public Reply send(Config config, Information information) throws Exception {
         final MailConfig conf = (MailConfig) config;
@@ -46,4 +42,8 @@ public class MailAlarm extends AlarmAdapter {
         return null;
     }
 
+    @Override
+    public int getIndex() {
+        return AlarmType.MAIL.getValue();
+    }
 }

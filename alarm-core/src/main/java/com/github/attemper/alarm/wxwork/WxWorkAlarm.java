@@ -7,14 +7,15 @@ import com.github.attemper.alarm.*;
  */
 public class WxWorkAlarm extends AlarmAdapter {
 
-    public WxWorkAlarm() {
-        this.index = AlarmType.WX_WORK.getValue();
-    }
-
     @Override
     public AppResult send(Config config, Information information) {
         WxWorkConfig WxWorkConfig = (WxWorkConfig) config;
         String result = HttpClientSingleton.getInstance().post(WxWorkConfig.getUrl(), information);
         return BeanUtil.jsonStr2Bean(result, AppResult.class);
+    }
+
+    @Override
+    public int getIndex() {
+        return AlarmType.WX_WORK.getValue();
     }
 }

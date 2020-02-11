@@ -1,5 +1,7 @@
 package com.github.attemper.alarm.dingtalk.param;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class AtBody {
 
     /**
@@ -7,23 +9,24 @@ public class AtBody {
      */
     protected String[] atMobiles;
 
-    protected Boolean isAtAll;
+    @JsonProperty("isAtAll")
+    protected Boolean atAll;
 
     public String[] getAtMobiles() {
         return atMobiles;
     }
 
-    public AtBody setAtMobiles(String[] atMobiles) {
+    public AtBody setAtMobiles(String... atMobiles) {
         this.atMobiles = atMobiles;
         return this;
     }
 
     public Boolean getAtAll() {
-        return isAtAll;
+        return atAll;
     }
 
     public AtBody setAtAll(Boolean atAll) {
-        isAtAll = atAll;
+        this.atAll = atAll;
         return this;
     }
 }

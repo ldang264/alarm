@@ -13,10 +13,6 @@ import java.net.URLEncoder;
  */
 public class DingTalkAlarm extends AlarmAdapter {
 
-    public DingTalkAlarm() {
-        this.index = AlarmType.DING_TALK.getValue();
-    }
-
     @Override
     public AppResult send(Config config, Information information) {
         DingTalkConfig dingTalkConfig = (DingTalkConfig) config;
@@ -40,5 +36,10 @@ public class DingTalkAlarm extends AlarmAdapter {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public int getIndex() {
+        return AlarmType.DING_TALK.getValue();
     }
 }

@@ -3,7 +3,7 @@ package com.github.attemper.alarm;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AlarmAdapter extends Indexed implements Alarming {
+public abstract class AlarmAdapter implements Alarming, Indexing {
 
     @Override
     public List<Reply> send(Config config, List<Information> informations) throws Exception {
