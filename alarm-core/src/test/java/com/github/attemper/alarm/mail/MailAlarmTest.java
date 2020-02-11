@@ -1,6 +1,8 @@
 package com.github.attemper.alarm.mail;
 
 import com.github.attemper.alarm.Reply;
+import com.github.attemper.alarm.TestConstants;
+import com.github.attemper.alarm.TestUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -28,13 +30,22 @@ public class MailAlarmTest {
     }
 
     @Test
-    public void testSend() throws Exception {
+    public void testHtml() throws Exception {
         MailInformation htmlInfo = new MailInformation()
-                .setTo("2456038733@qq.com,820704815@qq.com")
-                .setSubject("你好")
-                .setContent("<font color=\"red\">中国</font>");
+                .setTo("2456038733@qq.com")
+                .setSubject(TestConstants.SUBJECT)
+                .setContent(TestUtil.getContent(TestConstants.HTML));
         Reply reply = alarm.send(config, htmlInfo);
         Assert.assertEquals(reply, null);
     }
 
+    @Test
+    public void testHtmlToMultiRecipients() throws Exception {
+        MailInformation htmlInfo = new MailInformation()
+                .setTo("2456038733@qq.com,820704815@qq.com")
+                .setSubject(TestConstants.SUBJECT)
+                .setContent(TestUtil.getContent(TestConstants.HTML));
+        Reply reply = alarm.send(config, htmlInfo);
+        Assert.assertEquals(reply, null);
+    }
 }

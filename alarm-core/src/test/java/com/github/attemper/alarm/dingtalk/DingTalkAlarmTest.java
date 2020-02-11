@@ -1,8 +1,9 @@
 package com.github.attemper.alarm.dingtalk;
 
-import com.github.attemper.alarm.ContentEntity;
-import com.github.attemper.alarm.Information;
-import com.github.attemper.alarm.AppResult;
+import com.github.attemper.alarm.*;
+import com.github.attemper.alarm.dingtalk.param.AtBody;
+import com.github.attemper.alarm.dingtalk.param.markdown.MarkdownBody;
+import com.github.attemper.alarm.dingtalk.param.markdown.MarkdownMsg;
 import com.github.attemper.alarm.dingtalk.param.text.TextMsg;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -23,8 +24,37 @@ public class DingTalkAlarmTest {
     }
 
     @Test
-    public void testSend() throws Exception {
-        Information info = new TextMsg().setText(new ContentEntity().setContent("任务报错了"));
+    public void testTextWithAtMobiles() throws Exception {
+        Information info = new TextMsg()
+                .setText(new ContentEntity().setContent(TestUtil.getContent(TestConstants.TEXT)))
+                .setAt(new AtBody().setAtMobiles(TestConstants.PHONE));
+        AppResult appResult = alarm.send(config, info);
+        Assert.assertEquals(appResult.getErrCode(), 0);
+    }
+
+    @Test
+    public void testTextWithAtAll() throws Exception {
+        Information info = new TextMsg()
+                .setText(new ContentEntity().setContent(TestUtil.getContent(TestConstants.TEXT)))
+                .setAt(new AtBody().setAtAll(true));
+        AppResult appResult = alarm.send(config, info);
+        Assert.assertEquals(appResult.getErrCode(), 0);
+    }
+
+    @Test
+    public void testMarkdownWithAtMobiles() throws Exception {
+        Information info = new MarkdownMsg()
+                .setMarkdown(new MarkdownBody().setTitle(TestConstants.SUBJECT).setText(TestUtil.getContent(TestConstants.MARKDOWN)))
+                .setAt(new AtBody().setAtMobiles(TestConstants.PHONE).setAtAll(false));
+        AppResult appResult = alarm.send(config, info);
+        Assert.assertEquals(appResult.getErrCode(), 0);
+    }
+
+    @Test
+    public void testMarkdownWithAtAll() throws Exception {
+        Information info = new MarkdownMsg()
+                .setMarkdown(new MarkdownBody().setTitle(TestConstants.SUBJECT).setText(TestUtil.getContent(TestConstants.MARKDOWN)))
+                .setAt(new AtBody().setAtAll(true));
         AppResult appResult = alarm.send(config, info);
         Assert.assertEquals(appResult.getErrCode(), 0);
     }

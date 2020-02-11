@@ -1,8 +1,8 @@
 package com.github.attemper.alarm.wxwork;
 
-import com.github.attemper.alarm.Information;
-import com.github.attemper.alarm.AppResult;
+import com.github.attemper.alarm.*;
 import com.github.attemper.alarm.wxwork.param.ContentBody;
+import com.github.attemper.alarm.wxwork.param.markdown.MarkdownMsg;
 import com.github.attemper.alarm.wxwork.param.text.TextMsg;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -21,10 +21,33 @@ public class WxWorkAlarmTest {
     }
 
     @Test
-    public void testSend() throws Exception {
-        ContentBody contentBody = new ContentBody();
-        contentBody.setContent("任务报错了");
+    public void testTextWithMentionedList() throws Exception {
+        ContentBody contentBody = new ContentBody().setMentionedList(TestConstants.MENTIONED);
+        contentBody.setContent(TestUtil.getContent(TestConstants.TEXT));
         Information info = new TextMsg().setText(contentBody);
+        AppResult appResult = alarm.send(config, info);
+        Assert.assertEquals(appResult.getErrCode(), 0);
+    }
+
+    @Test
+    public void testTextWithMentionedMobileList() throws Exception {
+        ContentBody contentBody = new ContentBody().setMentionedMobileList(TestConstants.PHONE);
+        contentBody.setContent(TestUtil.getContent(TestConstants.TEXT));
+        Information info = new TextMsg().setText(contentBody);
+        AppResult appResult = alarm.send(config, info);
+        Assert.assertEquals(appResult.getErrCode(), 0);
+    }
+
+    @Test
+    public void testMarkdownWithMentionedList() throws Exception {
+        Information info = new MarkdownMsg().setMarkdown(new ContentEntity().setContent(TestUtil.getContent(TestConstants.MARKDOWN)));
+        AppResult appResult = alarm.send(config, info);
+        Assert.assertEquals(appResult.getErrCode(), 0);
+    }
+
+    @Test
+    public void testMarkdownWithMentionedMobileList() throws Exception {
+        Information info = new MarkdownMsg().setMarkdown(new ContentEntity().setContent(TestUtil.getContent(TestConstants.MARKDOWN)));
         AppResult appResult = alarm.send(config, info);
         Assert.assertEquals(appResult.getErrCode(), 0);
     }
