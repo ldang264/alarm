@@ -14,7 +14,7 @@ import java.net.URLEncoder;
 public class DingTalkAlarm extends AlarmAdapter {
 
     @Override
-    public AppResult send(Config config, Information information) {
+    public AppResult sendInternal(Config config, Information information) {
         DingTalkConfig dingTalkConfig = (DingTalkConfig) config;
         StringBuilder webHook = new StringBuilder(dingTalkConfig.getUrl());
         if (StringUtils.isNotBlank(dingTalkConfig.getSecret())) {

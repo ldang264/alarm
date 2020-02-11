@@ -15,7 +15,7 @@ import java.util.Properties;
 public class MailAlarm extends AlarmAdapter {
 
     @Override
-    public Reply send(Config config, Information information) throws Exception {
+    public Reply sendInternal(Config config, Information information) throws Exception {
         final MailConfig conf = (MailConfig) config;
         MailInformation mailInformation = (MailInformation) information;
         Properties properties = new Properties();
