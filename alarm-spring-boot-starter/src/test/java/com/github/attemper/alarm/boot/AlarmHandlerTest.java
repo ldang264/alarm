@@ -22,6 +22,7 @@ import org.springframework.test.context.junit4.SpringRunner;
         "alarm.channel.mail.username=820704815@qq.com",
         "alarm.channel.mail.password=hhhhaiobrrwibeac",
         "alarm.channel.ding-talk.url=https://oapi.dingtalk.com/robot/send?access_token=8d3265518af6dcf99de4b8d6f8a927f75a8f972e98b6dafec0d56e1642531020",
+        "alarm.channel.ding-talk.secret=SECcfa804c064bd5c82c38ac6a18162bba6c0158d045668373e6e59b4f72f17836c",
         "alarm.channel.wx-work.url=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=30a8f590-8250-47e8-bd15-9d37c8a37de8"
 })
 @ContextConfiguration(classes = {

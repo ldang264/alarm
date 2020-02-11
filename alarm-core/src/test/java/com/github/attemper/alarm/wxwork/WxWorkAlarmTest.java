@@ -25,8 +25,8 @@ public class WxWorkAlarmTest {
         ContentBody contentBody = new ContentBody().setMentionedList(TestConstants.MENTIONED);
         contentBody.setContent(TestUtil.getContent(TestConstants.TEXT));
         Information info = new TextMsg().setText(contentBody);
-        AppResult appResult = alarm.send(config, info);
-        Assert.assertEquals(appResult.getErrCode(), 0);
+        AppReply appReply = (AppReply) alarm.send(config, info);
+        Assert.assertEquals(appReply.getErrCode(), 0);
     }
 
     @Test
@@ -34,21 +34,21 @@ public class WxWorkAlarmTest {
         ContentBody contentBody = new ContentBody().setMentionedMobileList(TestConstants.PHONE);
         contentBody.setContent(TestUtil.getContent(TestConstants.TEXT));
         Information info = new TextMsg().setText(contentBody);
-        AppResult appResult = alarm.send(config, info);
-        Assert.assertEquals(appResult.getErrCode(), 0);
+        AppReply appReply = (AppReply) alarm.send(config, info);
+        Assert.assertEquals(appReply.getErrCode(), 0);
     }
 
     @Test
     public void testMarkdownWithMentionedList() throws Exception {
         Information info = new MarkdownMsg().setMarkdown(new ContentEntity().setContent(TestUtil.getContent(TestConstants.MARKDOWN)));
-        AppResult appResult = alarm.send(config, info);
-        Assert.assertEquals(appResult.getErrCode(), 0);
+        AppReply appReply = (AppReply) alarm.send(config, info);
+        Assert.assertEquals(appReply.getErrCode(), 0);
     }
 
     @Test
     public void testMarkdownWithMentionedMobileList() throws Exception {
         Information info = new MarkdownMsg().setMarkdown(new ContentEntity().setContent(TestUtil.getContent(TestConstants.MARKDOWN)));
-        AppResult appResult = alarm.send(config, info);
-        Assert.assertEquals(appResult.getErrCode(), 0);
+        AppReply appReply = (AppReply) alarm.send(config, info);
+        Assert.assertEquals(appReply.getErrCode(), 0);
     }
 }

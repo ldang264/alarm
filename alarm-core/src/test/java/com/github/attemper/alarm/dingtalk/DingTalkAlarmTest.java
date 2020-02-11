@@ -28,8 +28,8 @@ public class DingTalkAlarmTest {
         Information info = new TextMsg()
                 .setText(new ContentEntity().setContent(TestUtil.getContent(TestConstants.TEXT)))
                 .setAt(new AtBody().setAtMobiles(TestConstants.PHONE));
-        AppResult appResult = alarm.send(config, info);
-        Assert.assertEquals(appResult.getErrCode(), 0);
+        AppReply appReply = (AppReply) alarm.send(config, info);
+        Assert.assertEquals(appReply.getErrCode(), 0);
     }
 
     @Test
@@ -37,8 +37,8 @@ public class DingTalkAlarmTest {
         Information info = new TextMsg()
                 .setText(new ContentEntity().setContent(TestUtil.getContent(TestConstants.TEXT)))
                 .setAt(new AtBody().setAtAll(true));
-        AppResult appResult = alarm.send(config, info);
-        Assert.assertEquals(appResult.getErrCode(), 0);
+        AppReply appReply = (AppReply) alarm.send(config, info);
+        Assert.assertEquals(appReply.getErrCode(), 0);
     }
 
     @Test
@@ -46,8 +46,8 @@ public class DingTalkAlarmTest {
         Information info = new MarkdownMsg()
                 .setMarkdown(new MarkdownBody().setTitle(TestConstants.SUBJECT).setText(TestUtil.getContent(TestConstants.MARKDOWN)))
                 .setAt(new AtBody().setAtMobiles(TestConstants.PHONE).setAtAll(false));
-        AppResult appResult = alarm.send(config, info);
-        Assert.assertEquals(appResult.getErrCode(), 0);
+        AppReply appReply = (AppReply) alarm.send(config, info);
+        Assert.assertEquals(appReply.getErrCode(), 0);
     }
 
     @Test
@@ -55,7 +55,7 @@ public class DingTalkAlarmTest {
         Information info = new MarkdownMsg()
                 .setMarkdown(new MarkdownBody().setTitle(TestConstants.SUBJECT).setText(TestUtil.getContent(TestConstants.MARKDOWN)))
                 .setAt(new AtBody().setAtAll(true));
-        AppResult appResult = alarm.send(config, info);
-        Assert.assertEquals(appResult.getErrCode(), 0);
+        AppReply appReply = (AppReply) alarm.send(config, info);
+        Assert.assertEquals(appReply.getErrCode(), 0);
     }
 }

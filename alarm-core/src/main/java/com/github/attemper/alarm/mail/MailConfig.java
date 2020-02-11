@@ -1,5 +1,6 @@
 package com.github.attemper.alarm.mail;
 
+import com.github.attemper.alarm.AlarmType;
 import com.github.attemper.alarm.ConfigAdapter;
 
 import java.util.Map;
@@ -50,4 +51,8 @@ public class MailConfig extends ConfigAdapter {
         return this;
     }
 
+    @Override
+    public int getIndex() {
+        return AlarmType.MAIL.getValue();
+    }
 }

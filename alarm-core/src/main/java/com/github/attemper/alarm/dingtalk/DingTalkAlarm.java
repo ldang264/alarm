@@ -14,7 +14,7 @@ import java.net.URLEncoder;
 public class DingTalkAlarm extends AlarmAdapter {
 
     @Override
-    public AppResult sendInternal(Config config, Information information) {
+    public AppReply sendInternal(Config config, Information information) {
         DingTalkConfig dingTalkConfig = (DingTalkConfig) config;
         StringBuilder webHook = new StringBuilder(dingTalkConfig.getUrl());
         if (StringUtils.isNotBlank(dingTalkConfig.getSecret())) {
@@ -23,7 +23,7 @@ public class DingTalkAlarm extends AlarmAdapter {
                     .append("&sign=").append(getSign(timestamp, dingTalkConfig.getSecret()));
         }
         String result = HttpClientSingleton.getInstance().post(webHook.toString(), information);
-        return BeanUtil.jsonStr2Bean(result, AppResult.class);
+        return BeanUtil.jsonStr2Bean(result, AppReply.class);
     }
 
     private String getSign(long timestamp, String secret) {

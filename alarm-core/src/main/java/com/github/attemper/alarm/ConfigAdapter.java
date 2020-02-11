@@ -1,6 +1,6 @@
 package com.github.attemper.alarm;
 
-public abstract class ConfigAdapter implements Config {
+public abstract class ConfigAdapter implements Config, Indexing {
 
     protected boolean enabled = true;
 

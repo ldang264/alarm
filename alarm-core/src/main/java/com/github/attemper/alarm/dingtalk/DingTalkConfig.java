@@ -1,5 +1,6 @@
 package com.github.attemper.alarm.dingtalk;
 
+import com.github.attemper.alarm.AlarmType;
 import com.github.attemper.alarm.ConfigAdapter;
 
 public class DingTalkConfig extends ConfigAdapter {
@@ -24,5 +25,10 @@ public class DingTalkConfig extends ConfigAdapter {
     public DingTalkConfig setSecret(String secret) {
         this.secret = secret;
         return this;
+    }
+
+    @Override
+    public int getIndex() {
+        return AlarmType.DING_TALK.getValue();
     }
 }
