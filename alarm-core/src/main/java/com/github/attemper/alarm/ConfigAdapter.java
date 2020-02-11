@@ -2,7 +2,7 @@ package com.github.attemper.alarm;
 
 public abstract class ConfigAdapter implements Config {
 
-    protected boolean enabled;
+    protected boolean enabled = true;
 
     public boolean isEnabled() {
         return enabled;
