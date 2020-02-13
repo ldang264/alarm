@@ -4,14 +4,16 @@ import com.github.attemper.alarm.*;
 import org.reflections.Reflections;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Component
 public class AlarmHandler {
+
+    @Value("${alarm.enabled:true}")
+    private boolean enabled;
 
     private static Logger log = LoggerFactory.getLogger(AlarmHandler.class);
 
@@ -32,15 +34,37 @@ public class AlarmHandler {
         }
     }
 
-    public Reply send(int index, Information information) throws Exception {
-        if (!alarms.containsKey(index)) {
-            throw new RuntimeException("The alarm " + index + " is non-existent");
-        } else if (!Store.getConfigMap().containsKey(index)) {
-            throw new RuntimeException("The config " + index + " is non-existent");
+    /**
+     * send information via channel
+     * @param index the channel order
+     * @param information the information
+     * @return
+     * @throws Exception
+     */
+    public Reply send(Information information, int index) throws Exception {
+        if (!enabled) {
+            if (log.isDebugEnabled()) {
+                log.debug("The switch isn't enabled, ignore to alarm");
+            }
+            return null;
         }
+        validateIndex(index);
         Class<? extends AlarmAdapter> alarmClazz = alarms.get(index);
         AlarmAdapter alarmAdapter = newInstance(alarmClazz);
         return alarmAdapter.send(Store.getConfigMap().get(index), information);
+    }
+
+    private void validateIndex(int... indexes) {
+        if (indexes == null || indexes.length == 0) {
+            throw new RuntimeException("The indexes can't be null or empty");
+        }
+        for (int index : indexes) {
+            if (!alarms.containsKey(index)) {
+                throw new RuntimeException("The alarm " + index + " is non-existent");
+            } else if (!Store.getConfigMap().containsKey(index)) {
+                throw new RuntimeException("The config " + index + " is non-existent");
+            }
+        }
     }
 
     private static AlarmAdapter newInstance(Class<? extends AlarmAdapter> alarmClazz) {

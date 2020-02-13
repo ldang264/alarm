@@ -39,13 +39,13 @@ public class AlarmHandlerTest {
                 .setTo("2456038733@qq.com,820704815@qq.com")
                 .setSubject("你好")
                 .setContent("<font color=\"red\">中国</font>");
-        alarmHandler.send(AlarmType.MAIL.getValue(), htmlInfo);
+        alarmHandler.send(htmlInfo, AlarmType.MAIL.getValue());
     }
 
     @Test
     public void sendDingTalk() throws Exception {
         Information info = new TextMsg().setText(new ContentEntity().setContent("任务报错了"));
-        alarmHandler.send(AlarmType.DING_TALK.getValue(), info);
+        alarmHandler.send(info, AlarmType.DING_TALK.getValue());
     }
 
     @Test
@@ -53,6 +53,6 @@ public class AlarmHandlerTest {
         ContentBody contentBody = new ContentBody();
         contentBody.setContent("任务报错了");
         Information info = new com.github.attemper.alarm.wxwork.param.text.TextMsg().setText(contentBody);
-        alarmHandler.send(AlarmType.WX_WORK.getValue(), info);
+        alarmHandler.send(info, AlarmType.WX_WORK.getValue());
     }
 }

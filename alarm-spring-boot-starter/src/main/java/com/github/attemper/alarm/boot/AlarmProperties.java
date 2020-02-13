@@ -9,18 +9,8 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @ConfigurationProperties(prefix = "alarm")
 public class AlarmProperties {
 
-    private boolean enabled = true;
-
     @NestedConfigurationProperty
     private final ChannelConfig channel = new ChannelConfig();
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
 
     public ChannelConfig getChannel() {
         return channel;
